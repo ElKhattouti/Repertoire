@@ -8,10 +8,11 @@ public class Ville
     [Key]
     public int VilleId { get; set; }
 
-    [Required(ErrorMessage ="Le nom de la ville est obligatoire")]
+    [Column("nom"), Required(ErrorMessage ="Le nom de la ville est obligatoire")]
     public string Nom { get; set; }
 
-    [ForeignKey("pays")]
+    [Column("pays_id"), ForeignKey("Pays"), Required]
     public int PaysId { get; set; }
+    public virtual Pays Pays { get; set; }
 
 }

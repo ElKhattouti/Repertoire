@@ -8,15 +8,14 @@ public class Adresse
     [Key]
     public int AdresseId { get; set; }
 
-    [Required(ErrorMessage = "La rue est obligatoire")]
+    [Column("rue"), Required]
     public string Rue { get; set; }
 
     [Display(Name = "Code postal"), Required(ErrorMessage = "Le code postal est obligatoire")]
     public string CodePostal { get; set; }
 
-    [ForeignKey("ville")]
+    [ForeignKey("Ville")]
     public int VilleId { get; set; }
-
     public virtual Ville Ville { get; set; }
 
 }
