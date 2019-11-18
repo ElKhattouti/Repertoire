@@ -11,7 +11,7 @@ namespace Api.Dal
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseNpgsql("Host=postgresql-oceanstudio.alwaysdata.net;Database=oceanstudio_entreprise;Username=oceanstudio;Password=bil442.ad");
-        public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<Pays> Pays { get; set; }
 
     }
 }
