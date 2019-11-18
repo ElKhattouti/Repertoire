@@ -6,12 +6,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class Ville
 {
     [Key]
+    [Column("ville_id")]
     public int VilleId { get; set; }
 
-    [Required(ErrorMessage ="Le nom de la ville est obligatoire")]
+    [Column("nom"), Required]
     public string Nom { get; set; }
 
-    [ForeignKey("pays")]
+    [Column("pays_id"), ForeignKey("Pays")]
     public int PaysId { get; set; }
+    public Pays Pays { get; set; }
 
 }

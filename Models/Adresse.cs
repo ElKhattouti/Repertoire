@@ -11,7 +11,7 @@ public class Adresse
     [Required(ErrorMessage = "La rue est obligatoire")]
     public string Rue { get; set; }
 
-    [Display(Name = "Code postal"), Required(ErrorMessage = "Le code postal est obligatoire")]
+    [Display(Name = "Code postal"), Required]
     public string CodePostal { get; set; }
 
     [ForeignKey("ville")]

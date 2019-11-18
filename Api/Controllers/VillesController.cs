@@ -24,7 +24,12 @@ namespace Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ville>>> GetVille()
         {
-            return await _context.Ville.ToListAsync();
+            var villes = await _context.Ville.ToListAsync();
+            foreach(var ville in villes)
+            {
+                ville.Pays = _context.Pays.Find(ville.PaysId);
+            }
+            return villes;
         }
 
         // GET: api/Villes/5
@@ -45,7 +50,7 @@ namespace Api.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVille(int id, Ville ville)
+        public async Task<ActionResult<Ville>> PutVille(int id, Ville ville)
         {
             if (id != ville.VilleId)
             {
@@ -70,7 +75,7 @@ namespace Api.Controllers
                 }
             }
 
-            return NoContent();
+            return ville;
         }
 
         // POST: api/Villes
