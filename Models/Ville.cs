@@ -14,6 +14,6 @@ public class Ville
 
     [Column("pays_id"), ForeignKey("Pays")]
     public int PaysId { get; set; }
-    public Pays Pays { get; set; }
+    public virtual Pays Pays { get; set; }
 
 }
