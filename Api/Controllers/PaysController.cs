@@ -45,7 +45,7 @@ namespace Api.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPays(int id, Pays pays)
+        public async Task<ActionResult<Pays>> PutPays(int id, Pays pays)
         {
             if (id != pays.PaysId)
             {
@@ -70,7 +70,7 @@ namespace Api.Controllers
                 }
             }
 
-            return NoContent();
+            return pays;
         }
 
         // POST: api/Pays
